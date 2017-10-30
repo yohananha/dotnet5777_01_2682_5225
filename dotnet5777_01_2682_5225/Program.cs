@@ -13,7 +13,7 @@ namespace dotnet5777_01_2682_5225
     {
         static void Main(string[] args)
         {
-            int choice;
+            int choice;//test
             do
             {
                 Console.WriteLine("For guessing number game, please enter 1\nFor magic square game, please enter 2.\nFor exit, enter 0\n");
