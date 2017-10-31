@@ -110,7 +110,7 @@ namespace dotnet5777_01_2682_5225
                 Console.WriteLine("Your guess is wrong!\nThe number {0} isn't appear in the array!", guess);
         }
 
-        static void magicSquare()
+      static void magicSquare()
         {
             int[,] square = new int[5, 5];//define two-dimensional array
             Console.WriteLine("Please enter 25 square numbers, seperate by enter between each row\n");
@@ -119,18 +119,33 @@ namespace dotnet5777_01_2682_5225
                     square[i, j] = Convert.ToInt32(Console.ReadLine());
             //define help vars:
             bool magic = true;
-            int sum = 0;
-            int sumTemp;
-            //check #0 - define the sum
-            for (int i = 0; i < 5; i++)
-                sum += square[0, i];
-            //check #1 - rows check
+            int diagonalFirst = 0;
+            int diagonalSecond = 0;
+            int sumRows;
+            int sumColumns;
+
+            //check #0 - diagonals check 
+            for (int i = 4, j = 0; i >= 0 || j < 5; j++, i--)
+            {
+                diagonalFirst += square[i, j];
+                diagonalSecond += square[i, i];
+            }
+            if(diagonalFirst != diagonalSecond)
+            {
+                Console.WriteLine("This is not magic square!");
+                return;//if this is no magic square there's no need to continue the checks
+            }
+            //check #1 - rows and columns check
             for (int i = 1; i < 5; i++)
             {
-                sumTemp = 0;
+                sumRows = 0;
+                sumColumns = 0;
                 for (int j = 0; j < 5; j++)
-                    sumTemp += square[i, j];
-                if (sumTemp != sum)
+                {
+                    sumRows += square[i, j];
+                    sumColumns += square[j, i];
+                }
+                if (sumRows != diagonalFirst || sumColumns != diagonalFirst)
                 {
                     magic = false;
                     break;
@@ -141,46 +156,7 @@ namespace dotnet5777_01_2682_5225
                 Console.WriteLine("This is not magic square!");
                 return;//if this is no magic square there's no need to continue the checks
             }
-            //check #2 - columns check
-            for (int i = 0; i < 5; i++)
-            {
-                sumTemp = 0;
-                for (int j = 0; j < 5; j++)
-                    sumTemp += square[j, i];
-                if (sumTemp != sum)
-                {
-                    magic = false;
-                    break;
-                }
-            }
-            if (magic == false)
-            {
-                Console.WriteLine("This is not magic square!");
-                return;
-            }
-            sumTemp = 0;
-            //check #3 - diagonal first check
-            for (int i = 0; i < 5; i++)
-            {
-                sumTemp += square[i, i];
-               
-            }
-            if (sumTemp != sum)
-            {
-                Console.WriteLine("This is not magic square!");
-                return;
-            }
-            sumTemp = 0;
-            //check #4 - diagonal second check
-            for (int i =4, j=0; i >=0|| j<5 ; j++,i--)
-            {
-                    sumTemp += square[i, j];
-            }
-            if (sumTemp != sum)
-            {
-                Console.WriteLine("This is not magic square!");
-                return;
-            }
+         
             Console.WriteLine("Behold the magic square! Hoozah!");
             return;
         }
