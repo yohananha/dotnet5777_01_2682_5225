@@ -110,7 +110,7 @@ namespace dotnet5777_01_2682_5225
                 Console.WriteLine("Your guess is wrong!\nThe number {0} isn't appear in the array!", guess);
         }
 
-        static void magicSquare()
+      static void magicSquare()
         {
             int[,] square = new int[5, 5];//define two-dimensional array
             Console.WriteLine("Please enter 25 square numbers, seperate by enter between each row\n");
