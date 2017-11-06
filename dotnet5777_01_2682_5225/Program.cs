@@ -124,6 +124,7 @@ namespace dotnet5777_01_2682_5225
             int sumRows;
             int sumColumns;
 
+
             //check #0 - diagonals check 
             for (int i = 4, j = 0; i >= 0 || j < 5; j++, i--)
             {
@@ -156,7 +157,7 @@ namespace dotnet5777_01_2682_5225
                 Console.WriteLine("This is not magic square!");
                 return;//if this is no magic square there's no need to continue the checks
             }
-         
+
             Console.WriteLine("Behold the magic square! Hoozah!");
             return;
         }
