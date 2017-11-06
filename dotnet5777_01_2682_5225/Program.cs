@@ -65,7 +65,7 @@ namespace dotnet5777_01_2682_5225
                 }
             } while (choice != 0);
         }
-
+       
         private static void guessNumRange(int[] rand)
         {
             Console.WriteLine("Please insert 3 numbers:\nFirst 2 numbers for numbers range, and another for how many numbers you guess in that range.");
@@ -162,5 +162,6 @@ namespace dotnet5777_01_2682_5225
         }
     }
 }
+//try
 
 
